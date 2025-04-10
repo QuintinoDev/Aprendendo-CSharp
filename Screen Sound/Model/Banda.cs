@@ -1,6 +1,16 @@
-﻿class Banda 
+﻿namespace ScreenSound.Model;
+internal class Banda : IAvaliavel
 { 
-    private List<Album> albums = new List<Album>();
+    public List<Album> albums = new List<Album>();
+    private List<Avaliacao> notas = new ();
+    public double Media
+    {
+        get
+        {
+            if (notas.Count == 0) return 0;
+            else return notas.Average(a => a.Nota);//Fizemos um metodo get com paramentros mesmo nem precisar declarar um metodo completo
+        }
+    }
     public string Nome { get; set; }
 
     public Banda(string Nome) 
@@ -20,5 +30,8 @@
             Console.WriteLine($"Álbum: {album.Nome}, com duração de {album.DuracaoTotal}");
         }
     }
-
+    public void AdicionarNota(Avaliacao nota)
+    {
+        notas.Add(nota);
+    }
 }

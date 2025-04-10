@@ -1,4 +1,5 @@
-﻿  class Musica 
+﻿namespace ScreenSound.Model;
+internal class Musica 
 {
     public string Nome { get; set; }
     public string Artista { get; set; }
